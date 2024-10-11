@@ -109,6 +109,7 @@ const config = () => {
       '-u, --fonts-url <value>',
       'public URL to the fonts directory (used in the generated CSS)'
     )
+    .option('--base64 [bool]', 'enable the generation of base64 fonts')
     .option('--debug', 'display errors stack trace' + printDefaultValue(false))
     .option('--silent', 'run with no logs' + printDefaultValue(false));
 };
@@ -132,7 +133,8 @@ const buildOptions = async (cmd: commander.Command, loadedConfig = {}) => {
       selector: opts.selector,
       tag: opts.tag,
       prefix: opts.prefix,
-      fontsUrl: opts.fontsUrl
+      fontsUrl: opts.fontsUrl,
+      base64: opts.base64
     })
   };
 };

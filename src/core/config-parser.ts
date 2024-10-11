@@ -32,6 +32,7 @@ const CONFIG_VALIDATORS: {
   tag: [parseString],
   prefix: [parseString],
   fontsUrl: [optional(parseString)],
+  base64: [optional(parseBoolean)],
   getIconId: [optional(parseFunction)]
 };
 
