@@ -23,6 +23,7 @@ export type RunnerOptionalOptions = {
   templates: { [key in OtherAssetType]?: string };
   prefix: string;
   fontsUrl: string;
+  base64: boolean;
   getIconId: GetIconIdFn;
 };
 
