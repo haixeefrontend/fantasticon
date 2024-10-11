@@ -57,6 +57,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: [lint, test]
 
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+      packages: write
+      id-token: write
+
     steps:
       - uses: actions/checkout@v4
         with:
