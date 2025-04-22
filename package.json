@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/glob": "^7.2.0",
     "@types/jest": "^29.5.14",
-    "@types/node": "^20.17.23",
+    "@types/node": "^20.17.30",
     "@types/svg2ttf": "^5.0.3",
     "@types/svgicons2svgfont": "^10.0.5",
     "@types/ttf2eot": "^2.0.2",
@@ -67,8 +67,8 @@
     "jest": "^29.7.0",
     "prettier": "^3.5.3",
     "rimraf": "^3.0.2",
-    "ts-jest": "^29.2.6",
-    "typescript": "^5.8.2"
+    "ts-jest": "^29.3.2",
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">=16"
