@@ -32,7 +32,7 @@ export const renderSrcAttribute = (
       const suffix = getSuffix ? getSuffix(name) : '';
       if (base64) {
         const fontPath = path.resolve(
-          outputDir,
+          outputDir ?? '.',
           `${fontsUrl || '.'}/${name}.${fontType}`
         );
         const fontBuffer = fs.readFileSync(fontPath);
