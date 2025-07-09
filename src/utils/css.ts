@@ -30,9 +30,9 @@ export const renderSrcAttribute = (
       const { formatValue, getSuffix } = renderSrcOptions[fontType];
       const hash = getHash(font.toString('utf8'));
       const suffix = getSuffix ? getSuffix(name) : '';
-      if (base64) {
+      if (base64 && outputDir) {
         const fontPath = path.resolve(
-          outputDir ?? '.',
+          outputDir,
           `${fontsUrl || '.'}/${name}.${fontType}`
         );
         const fontBuffer = fs.readFileSync(fontPath);
