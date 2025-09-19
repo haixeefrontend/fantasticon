@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+import { GeneratedAssets } from '../generators/generate-assets';
 import { FontGeneratorOptions } from '../types/generator';
 import { getHash } from './hash';
 import { FontAssetType } from '../types/misc';
@@ -23,19 +24,16 @@ const renderSrcOptions: { [key in FontAssetType]: RenderSrcOptions } = {
 
 export const renderSrcAttribute = (
   { name, fontTypes, fontsUrl, base64, outputDir }: FontGeneratorOptions,
-  font: string | Buffer
+  font: string | Buffer,
+  generated?: GeneratedAssets
 ) =>
   fontTypes
     .map(fontType => {
       const { formatValue, getSuffix } = renderSrcOptions[fontType];
       const hash = getHash(font.toString('utf8'));
       const suffix = getSuffix ? getSuffix(name) : '';
-      if (base64 && outputDir) {
-        const fontPath = path.resolve(
-          outputDir,
-          `${fontsUrl || '.'}/${name}.${fontType}`
-        );
-        const fontBuffer = fs.readFileSync(fontPath);
+      if (base64 && generated?.[fontType]) {
+        const fontBuffer = generated[fontType] as Buffer;
         const base64Font = fontBuffer.toString('base64');
         return `url("data:font/${fontType};base64,${base64Font}${suffix}") format("${formatValue}")`;
       } else {
