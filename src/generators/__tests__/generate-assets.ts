@@ -63,14 +63,26 @@ describe('Generate assets', () => {
     await generateAssets(options);
 
     expect(getGeneratorFn('a')).toHaveBeenCalledTimes(1);
-    expect(getGeneratorFn('a')).toHaveBeenCalledWith(options, null, expect.any(Object));
+    expect(getGeneratorFn('a')).toHaveBeenCalledWith(
+      options,
+      null,
+      expect.any(Object)
+    );
 
     expect(getGeneratorFn('b')).toHaveBeenCalledTimes(1);
-    expect(getGeneratorFn('b')).toHaveBeenCalledWith(options, '::a::', expect.any(Object));
+    expect(getGeneratorFn('b')).toHaveBeenCalledWith(
+      options,
+      '::a::',
+      expect.any(Object)
+    );
 
     expect(getGeneratorFn('c')).not.toHaveBeenCalled();
 
     expect(getGeneratorFn('d')).toHaveBeenCalledTimes(1);
-    expect(getGeneratorFn('d')).toHaveBeenCalledWith(options, null, expect.any(Object));
+    expect(getGeneratorFn('d')).toHaveBeenCalledWith(
+      options,
+      null,
+      expect.any(Object)
+    );
   });
 });

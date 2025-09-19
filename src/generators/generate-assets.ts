@@ -27,7 +27,7 @@ export const generateAssets = async (
     return (generated[type] = await generator.generate(
       options,
       dependsOn ? generated[dependsOn] : null,
-      generated,
+      generated
     ));
   };
 
