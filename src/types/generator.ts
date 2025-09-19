@@ -15,7 +15,7 @@ export type Result = Promise<string | Buffer>;
 export type FontGeneratorFn<DependencyT> = (
   options: FontGeneratorOptions,
   dependencyContent: DependencyT extends {} ? DependencyT : null,
-  generatedAssets: GeneratedAssets
+  generatedAssets?: GeneratedAssets
 ) => Result;
 
 export type FontGenerator<DependencyT = void> = {
